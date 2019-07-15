@@ -1,0 +1,171 @@
+{% load static %}
+<!doctype html>
+<script src="{%static '/Scripts/jquery-1.7.1.min.js' %}"></script>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="{%static '/Templates/vendors/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{%static '/Templates/vendors/base/vendor.bundle.base.css' %}">
+    <link rel="stylesheet" href="{%static 'css/styleLogin.css' %}">
+    <link rel="shortcut icon" href="{%static 'images/favicon.png' %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+                <div class="row flex-grow">
+                    
+                    <div class="col-lg-4 d-flex align-items-center justify-content-center" style="overflow-y: auto;background-color:black;">
+                        <div class="auth-form-transparent text-left p-3" id="LoginBox">
+                            
+                            
+                            <form class="pt-3" id="login">
+                                <div class="brand-logo" style="text-align: center;">
+                                    <h1 style="font-size:30px;color:white;"> Login </h1>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail" style="font-size:20px;color:white;">Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-account-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword" style="font-size:20px;color:white;">Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-lock-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="my-3" >
+                                    <a style="margin-top:6vh;background-color:#BABABA;" class="btn btn-block btn-lg font-weight-medium auth-form-btn" onclick="LoginSubmit()">LOGIN</a>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light" style="color:white;">
+                                    Don't have an account? <a href="javascript:void(0)" id="Register" class="text-primary">Create</a>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="auth-form-transparent text-left p-3" id="RegisterBox" style="display: none;width: 75vw;margin-left: -11vw;background-color:black;">
+                            <div class="brand-logo" style="text-align: center;color:white;">
+                                <h1>Sign Up</h1>
+                            </div>
+                            
+                            <form class="pt-3">
+                                <div class="form-group">
+                                    <label style="color:white;">Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-email-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="email" id="remail" class="form-control form-control-lg border-left-0" placeholder="Email">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label style="color:white;">First Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-account-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" id="fname" class="form-control form-control-lg border-left-0" placeholder="First Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:white;">Last Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-account-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" id="lname" class="form-control form-control-lg border-left-0" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:white;">Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-lock-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" id="rpassword" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:white;">Confirm Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-lock-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="password" id="cpassword" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label style="color:white;">Mobile No.</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-phone-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" id="mno" class="form-control form-control-lg border-left-0" placeholder="Mobile No.">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" onclick="Registernewuser()">SIGN UP</a>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light" style="color:white;">
+                                    Already have an account? <a  onclick="login()" class="text-primary">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 login-half-bg d-flex flex-row">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $('#Register').click(function(){
+            $('#login').hide();
+            $('#RegisterBox').show();
+        });
+    });
+    function login(){
+        $('#RegisterBox').hide();
+        $('#login').show();
+    }
+</script>

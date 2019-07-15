@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>INDEX</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <style>
+            .active_1
+            {
+             background-color:red;   
+            }
+        </style>
+    </head>
+    <body style="background-image: url('1.jpg');background-repeat:no-repeat;background-size:cover;">
+        <nav class="navbar" style="border-radius:0px;background-color:none;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html" style="color:black;font-size:24px;">SAE INDIA</a>
+                </div>
+                <ul class="nav navbar-nav" style="float:right;color:black;">
+                    <li id="nav1"><a class="menu" href="login.html" style="color:black;font-size:18px;">Login</a></li>
+                    <li id="nav2"><a class="menu" href="#" style="color:black;font-size:18px;">Signup</a></li>
+                    <li id="nav2"><a class="menu" href="#" style="font-size:18px;color:black;">LeadferBoard</a></li>
+                    <li id="nav4"><a class="menu" href="#" style="color:black;font-size:18px;">Fixture</a></li>
+                    <li id="nav3"><a class="menu" href="#" style="color:black;font-size:18px;">Log Out</a></li>
+                </ul>
+            </div>
+         </nav>
+    </body>
+</html>
+<script>
+    $(document).ready(function(){
+        $('.menu').click(function(){
+            $('.menu').removeClass("active_1");
+            $(this).addClass("active_1");
+        });
+    })
+</script>
