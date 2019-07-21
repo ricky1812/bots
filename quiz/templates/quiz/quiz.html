@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>QUIZ</head>
+<title>quiz</title>
+<body>
+	<h1>this is the quiz page</h1>
+	{% if question_all %}
+	<h3>the questions are</h3>
+	
+
+		{% for ques in question_all %}
+
+		
+		
+		<li>{{ ques.question_text }}<br></li>
+
+		{{% ans=ques.choice_set.get %}}
+			{{ ans.choice1 }}
+		
+
+		{% endfor %}
+	
+	{% else %}
+	<h4>NO QUESTION</h4>
+	{% endif %}
+</body>
+</html>
