@@ -12,10 +12,14 @@
 
 		
 		
-		<li>{{ ques.question_text }}<br></li>
+		<ul>{{ ques.question_text }}<br></ul>
 
-		{{% ans=ques.choice_set.get %}}
-			{{ ans.choice1 }}
+			
+			<li>{{ ques.choice_set.get.choice1 }}</li>
+			<li>{{ ques.choice_set.get.choice2 }}</li>
+			<li>{{ ques.choice_set.get.choice3 }}</li>
+			<li>{{ ques.choice_set.get.choice4 }}<li>
+			
 		
 
 		{% endfor %}

@@ -2,15 +2,18 @@ from django.shortcuts import render,redirect
 from  django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .models import Question,Choice
+from django.contrib.auth.models import User
+
 def index(request):
-	return render(request,'quiz/login.html')
+	users=User.objects.all()
+	return render(request,'quiz/login.html',{'users':users})
 
 def register(request):
 	if request.method=='POST':
 		form=UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return redirect('/register')
+			return redirect('index')
 	else:
 		form=UserCreationForm()
 
@@ -24,4 +27,8 @@ def quiz(request):
 	context={'question_all':question_all}
 
 	return render(request,'quiz/quiz.html',context)
+def score(request):
+	users=User.objects.all()
+	return render(request,'quiz/index2.html',{'users':users})
+
 
